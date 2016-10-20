@@ -4,9 +4,9 @@
 int main(void) {
 
 	int payments[] =  {1, 2, 3};
-	int n=sizeof(payments[])/sizeof(payments[0]);
+	int n=sizeof(payments)/sizeof(payments[0]);
 
-	if(average(payments) == 3) {
+	if(average(payments, n) == 2) {
           printf("%d\n", average(payments, n));
 	  printf("テスト成功\n");
 	}else{

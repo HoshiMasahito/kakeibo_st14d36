@@ -7,6 +7,8 @@ int average(int payments[], int n) {
 	printf("%d\n", n);
 	for(i=0; i<n; i++) {
         total += payments[i];
-		ave = total / i;
+    }
+	ave = total / i;
+
 	return ave;
 }

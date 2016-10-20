@@ -43,7 +43,7 @@ int main(void)
     printf("総支出額と平均支出額をspending.txtに記録しました。\n");
 
     } else if(i == 1) {
-	//ファイルのデータの削除を記述
+	//ファイルのデータの削除を記述する
 
     } else {
 	printf("作業を終了します。\n");

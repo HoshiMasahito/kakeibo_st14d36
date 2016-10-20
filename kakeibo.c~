@@ -17,7 +17,6 @@ int main(void)
     printf("日付を入力してください。\n");
     scanf("%s", date);    
     fprintf(fp, "%s\n", date);
-    fprintf(fp, "\n");
 
 
     i = 0;

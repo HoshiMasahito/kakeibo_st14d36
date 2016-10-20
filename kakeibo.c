@@ -32,8 +32,8 @@ int main(void)
     printf("sum: %lf\n", sum(payments, i));
     printf("average: %lf\n", average(payments, i));
 
-    fprintf(fp, "総支出額: %lf\n", sum(payments, i));
-    fprintf(fp, "平均支出額: %lf\n", average(payments, i));
+    fprintf(fp, "総支出額: %lf円\n", sum(payments, i));
+    fprintf(fp, "平均支出額: %lf円\n", average(payments, i));
 
     fprintf(fp, "\n");
 

@@ -3,12 +3,14 @@
 
 int main(void)
 {
-    int peyments[] = {1, 2, 3};
-    if(sum(peyments) == 6) {
-	printf("%d\n", sum(peyments));
+    int payments[] = {1, 2, 3};
+    int n = sizeof(payments)/sizeof(payments[0]);
+
+    if(sum(payments, n) == 6) {
+	printf("%d\n", sum(payments, n));
 	printf("テスト成功\n");
     } else {
-	printf("%d\n", sum(peyments));
+	printf("%d\n", sum(payments, n));
 	printf("テスト失敗\n");
     }
 

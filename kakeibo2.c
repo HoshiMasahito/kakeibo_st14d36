@@ -1,13 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 #include "sum.h"
 #include "average.h"
 
+#define N 256
+
 int main(void)
 {
-    int i, c;
-    char date[256];
-    double payments[256];
-    FILE *fp;
+    int i, c, len;
+    char date[N], readline[N];
+    double payments[N];
+    FILE *fp, *fcp;
 
     fp = fopen("spending.txt", "a");
     if(fp == NULL) {
@@ -18,33 +21,46 @@ int main(void)
     scanf("%d", &c);
 
     if(c == 0) {
-    printf("日付を入力してください。\n");
-    scanf("%s", date);    
-    fprintf(fp, "%s\n", date);
+	printf("日付を入力してください。\n");
+	scanf("%s", date);
 
-    i = 0;
-    printf("各支出額を入力してください。\n入力を終了する場合は0を入力してください。\n");
-    while(1) {
-	scanf("%lf", &payments[i]);
-	if(payments[i] == 0) {
-	    break;
-	};
-	i++;
-    }
+	fprintf(fp, "%s\n", date);
 
-    printf("sum: %lf\n", sum(payments, i));
-    printf("average: %lf\n", average(payments, i));
+	i = 0;
+	printf("各支出額を入力してください。\n入力を終了する場合は0を入力してください。\n");
+	    while(1) {
+		scanf("%lf", &payments[i]);
+		if(payments[i] == 0) {
+	    	    break;
+		};
+		i++;
+    	    }
 
-    fprintf(fp, "総支出額: %lf円\n", sum(payments, i));
-    fprintf(fp, "平均支出額: %lf円\n", average(payments, i));
+    	printf("sum: %lf\n", sum(payments, i));
+    	printf("average: %lf\n", average(payments, i));
 
-    fprintf(fp, "\n");
+    	fprintf(fp, "総支出額: %lf円\n", sum(payments, i));
+    	fprintf(fp, "平均支出額: %lf円\n", average(payments, i));
 
-    printf("総支出額と平均支出額をspending.txtに記録しました。\n");
+    	fprintf(fp, "\n");
 
-    } else if(i == 1) {
-	//ファイルのデータの削除を記述する
+    	printf("総支出額と平均支出額をspending.txtに記録しました。\n");
 
+    } else if(c == 1) {
+	//ファイルのデータの削除を記述する。
+	printf("日付を入力してください。\n");
+    	scanf("%s", date);
+
+	fcp = fopen("tmp.txt", "a");
+	while(fgets(readline, N, fp) != NULL) {
+	    printf("%s", readline);
+	    if(strcmp(date, readline) == 0) {
+		fprintf(fcp, "%s\n", readline);
+	    }
+	    while(fgets(readline, N, fcp) != NULL) {
+		fprintf(fp, "%s\n", readline);
+	    }
+	}
     } else {
 	printf("作業を終了します。\n");
     }

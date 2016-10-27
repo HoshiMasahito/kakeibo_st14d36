@@ -81,7 +81,7 @@ int main(void)
 	    fprintf(fp, "%s", readline);
 	}
 
-	printf("日付: %sの記録を削除しました。\n", date);
+	printf("%sの記録を削除しました。\n", date);
 	fclose(fp);
 	fclose(fcp);
     } else {
